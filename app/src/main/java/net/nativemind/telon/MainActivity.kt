@@ -41,11 +41,10 @@ class MainActivity : AppCompatActivity() {
                 recording.stopRecord()
             }
             binding.btnRecPlayback.setOnClickListener {
-                Log.d(packageName, fileList()[0].toString())
                 val audioFormat = AudioFormat.Builder()
                     .setSampleRate(48000)
                     .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
-                    .setChannelMask(AudioFormat.CHANNEL_OUT_STEREO)
+                    .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
                     .build()
                 val bufferSizeInBytes = 2 * AudioTrack.getMinBufferSize(
                     audioFormat.sampleRate,
@@ -66,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                     ByteBuffer.allocateDirect(bufferSizeInBytes)
                 val fileChannel: FileChannel = openFileInput("temp.pcm").channel
                 var bytesRead: Int
+                audioTrack.play()
                 while (true) {
                     audioByteBuffer.clear()
                     bytesRead = fileChannel.read(audioByteBuffer)
@@ -77,7 +77,8 @@ class MainActivity : AppCompatActivity() {
                     audioTrack.write(audioByteBuffer, bytesRead, AudioTrack.WRITE_BLOCKING)
                 }
                 fileChannel.close()
-                audioTrack.play()
+                audioTrack.stop()
+                audioTrack.release()
             }
         }
         // TODO: Call
