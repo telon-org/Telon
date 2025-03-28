@@ -9,7 +9,7 @@
         android:id="@+id/txtRecStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/record_status"
+        android:text="@string/recording_status"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtRecStatus"
-        android:text="@string/record_start"
+        android:text="@string/recording_start"
         app:layout_constraintEnd_toStartOf="@+id/btnRecStop"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtRecStatus"
         android:layout_toEndOf="@+id/btnRecStart"
-        android:text="@string/record_stop"
+        android:text="@string/recording_stop"
         app:layout_constraintBottom_toBottomOf="@+id/btnRecStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -93,7 +93,7 @@
         android:id="@+id/btnRecPlayback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/record_playback"
+        android:text="@string/recording_playback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRecStart" />

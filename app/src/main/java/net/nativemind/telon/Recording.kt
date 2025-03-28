@@ -81,7 +81,7 @@ constructor(audioFormat: AudioFormat) {
 
     private fun fetchRecordingStatus() {
         if (audioRecord.state == AudioRecord.STATE_UNINITIALIZED) {
-            statusView.text = this.activity.resources.getString(R.string.uninitalized)
+            statusView.text = this.activity.resources.getString(R.string.uninitialized)
             statusView.setTextColor(Color.RED)
             return
         }
