@@ -6,7 +6,7 @@
 
     <string name="call_playback">Playback call</string>
     <string name="call_start">Start calling</string>
-    <string name="call_status">Call status: </string>
+    <string name="call_status">Call status</string>
     <string name="call_stop">Stop calling</string>
 
     <string name="inactive">Inactive</string>
@@ -15,7 +15,7 @@
 
     <string name="recording_playback">Playback recording</string>
     <string name="recording_start">Start recording</string>
-    <string name="recording_status">Recording status: </string>
+    <string name="recording_status">Recording status</string>
     <string name="recording_stop">Stop recording</string>
 
     <string name="uninitialized">Uninitialized</string>

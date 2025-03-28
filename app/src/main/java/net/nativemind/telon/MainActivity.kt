@@ -7,41 +7,40 @@ import android.media.AudioFormat
 import android.media.AudioTrack
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.databinding.DataBindingUtil
+import net.nativemind.telon.databinding.ActivityMainBinding
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.io.path.Path
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recStatus: TextView
+    private lateinit var binding: ActivityMainBinding
     private lateinit var recording: Recording
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialized view
-        recStatus = findViewById(R.id.recStatus)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 1)
         // Initialize audio recorder
         if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            recStatus.text = resources.getString(R.string.permission_not_granted)
+            binding.recStatus.text = resources.getString(R.string.permission_not_granted)
         } else {
             recording = Recording(Recording.getBestAudioFormat())
-            recording.setStatusView(this, recStatus)
+            recording.setStatusView(this, binding.recStatus)
             // Bind button to onClickListener
-            findViewById<Button>(R.id.btnRecStart).setOnClickListener {
+            binding.btnRecStart.setOnClickListener {
                 recording.recordToFile(Path(filesDir.toString(), "temp.pcm"))
             }
-            findViewById<Button>(R.id.btnRecStop).setOnClickListener {
+            binding.btnRecStop.setOnClickListener {
                 recording.stopRecord()
             }
-            findViewById<Button>(R.id.btnRecPlayback).setOnClickListener {
+            binding.btnRecPlayback.setOnClickListener {
                 Log.d(packageName, fileList()[0].toString())
                 val audioFormat = AudioFormat.Builder()
                     .setSampleRate(48000)

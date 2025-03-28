@@ -1,110 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/txtRecStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recording_status"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/recStatus"
-        android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_toEndOf="@id/txtRecStatus"
-        android:text="@string/inactive"
-        android:textColor="@color/blue"
-        app:layout_constraintBottom_toBottomOf="@+id/txtRecStatus"
-        app:layout_constraintStart_toEndOf="@+id/txtRecStatus"
-        app:layout_constraintTop_toTopOf="@+id/txtRecStatus" />
+        <TextView
+            android:id="@+id/txtRecStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/recording_status + `:`}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnRecStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtRecStatus"
-        android:text="@string/recording_start"
-        app:layout_constraintEnd_toStartOf="@+id/btnRecStop"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRecStatus" />
+        <TextView
+            android:id="@+id/recStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@id/txtRecStatus"
+            android:text="@string/inactive"
+            android:textColor="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@+id/txtRecStatus"
+            app:layout_constraintStart_toEndOf="@+id/txtRecStatus"
+            app:layout_constraintTop_toTopOf="@+id/txtRecStatus" />
 
-    <Button
-        android:id="@+id/btnRecStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtRecStatus"
-        android:layout_toEndOf="@+id/btnRecStart"
-        android:text="@string/recording_stop"
-        app:layout_constraintBottom_toBottomOf="@+id/btnRecStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnRecStart"
-        app:layout_constraintTop_toTopOf="@+id/btnRecStart" />
+        <Button
+            android:id="@+id/btnRecStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtRecStatus"
+            android:text="@string/recording_start"
+            app:layout_constraintEnd_toStartOf="@+id/btnRecStop"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRecStatus" />
 
-    <TextView
-        android:id="@+id/txtCallStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call_status"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRecPlayback" />
+        <Button
+            android:id="@+id/btnRecStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtRecStatus"
+            android:layout_toEndOf="@+id/btnRecStart"
+            android:text="@string/recording_stop"
+            app:layout_constraintBottom_toBottomOf="@+id/btnRecStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnRecStart"
+            app:layout_constraintTop_toTopOf="@+id/btnRecStart" />
 
-    <TextView
-        android:id="@+id/callStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/inactive"
-        android:textColor="@color/blue"
-        app:layout_constraintBottom_toBottomOf="@+id/txtCallStatus"
-        app:layout_constraintStart_toEndOf="@+id/txtCallStatus"
-        app:layout_constraintTop_toTopOf="@+id/txtCallStatus" />
+        <TextView
+            android:id="@+id/txtCallStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/call_status + `:`}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRecPlayback" />
 
-    <Button
-        android:id="@+id/btnCallStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call_start"
-        app:layout_constraintEnd_toStartOf="@+id/btnCallStop"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCallStatus" />
+        <TextView
+            android:id="@+id/callStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/inactive"
+            android:textColor="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@+id/txtCallStatus"
+            app:layout_constraintStart_toEndOf="@+id/txtCallStatus"
+            app:layout_constraintTop_toTopOf="@+id/txtCallStatus" />
 
-    <Button
-        android:id="@+id/btnCallStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call_stop"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCallStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCallStart"
-        app:layout_constraintTop_toTopOf="@+id/btnCallStart" />
+        <Button
+            android:id="@+id/btnCallStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/call_start"
+            app:layout_constraintEnd_toStartOf="@+id/btnCallStop"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCallStatus" />
 
-    <Button
-        android:id="@+id/btnRecPlayback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recording_playback"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRecStart" />
+        <Button
+            android:id="@+id/btnCallStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/call_stop"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCallStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnCallStart"
+            app:layout_constraintTop_toTopOf="@+id/btnCallStart" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call_playback"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCallStart" />
+        <Button
+            android:id="@+id/btnRecPlayback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recording_playback"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRecStart" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/call_playback"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCallStart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
