@@ -11,6 +11,8 @@
 
     <string name="inactive">Inactive</string>
 
+    <string name="permission_not_granted">Permission not granted</string>
+
     <string name="record_playback">Playback recording</string>
     <string name="record_start">Start recording</string>
     <string name="record_status">Recording status: </string>

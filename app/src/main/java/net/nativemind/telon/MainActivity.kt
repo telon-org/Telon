@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.io.path.Path
@@ -26,8 +27,11 @@ class MainActivity : AppCompatActivity() {
         // Initialized view
         recStatus = findViewById(R.id.recStatus)
 
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 1)
         // Initialize audio recorder
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            recStatus.text = resources.getString(R.string.permission_not_granted)
+        } else {
             recording = Recording(Recording.getBestAudioFormat())
             recording.setStatusView(this, recStatus)
             // Bind button to onClickListener
