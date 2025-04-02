@@ -43,6 +43,7 @@ constructor(audioFormat: AudioFormat) {
         fetchRecordingStatus()
     }
 
+    // TODO: Make file a proper format
     fun recordToFile(filePath: Path) {
         if (audioRecord.recordingState != AudioRecord.RECORDSTATE_RECORDING) {
             val audioByteBuffer = ByteBuffer.allocateDirect(bufferSizeInBytes)
