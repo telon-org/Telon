@@ -45,5 +45,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
         // TODO: Call
+        if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            binding.btnCallStart.setOnClickListener {
+
+            }
+            binding.btnCallStop.setOnClickListener {
+
+            }
+            binding.btnCallPlayback.setOnClickListener {
+
+            }
+        }
     }
 }
